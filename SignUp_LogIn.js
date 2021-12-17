@@ -193,3 +193,15 @@ Validator.isPassword = function (selector, min, message) {
         }
     }
 }
+
+Validator.isPassword_Confirm = function(selector, getPassword, message) {
+    return {
+        selector: selector,
+        testError: function(value){
+            if(value === getPassword()){
+                return false;
+            }
+            return message || 'Giá trị nhập vào không chính xác';
+        }
+    }
+}
